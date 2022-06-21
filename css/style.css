@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(../img/body.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+.character__container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 4rem 0;
+    background: url(../img/all-bg.jpg);
+    background-repeat: repeat;
+    width: 100%;
+    background-position: center;
+}
+
+.create,
+.create__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.create__body {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s linear;
+    transform: scale(0);
+}
+
+.create.more .create__body {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+.create__form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid white;
+}
+
+input,
+select,
+button,
+.create-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.7rem;
+    outline: none;
+    border: 1px solid lightskyblue;
+    margin-bottom: 2rem;
+}
+.create select,
+.create .create__age {
+    max-width: 15%;
+    margin: 0 1rem 2rem 1rem;
+}
+
+.create__title {
+    width: 50%;
+    text-transform: capitalize;
+}
+.create button {
+    background: lightskyblue;
+}
+.create .create-btn {
+    background: lightskyblue;
+    color: black;
+    padding: 8px 15px;
+    margin-right: 1.5rem;
+}
+.create .create-btn i {
+    font-size: 40px;
+    pointer-events: none;
+    transition: all 0.4s linear;
+}
+.create.more .create-btn i {
+    transform: rotate(135deg);
+}
+.battle-select {
+    margin-right: 2rem;
+}
+
+.filter {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s linear;
+    transform: scale(0);
+}
+
+.filter.more {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+
+.filter__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter__body .filter__input {
+    width: 75%;
+}
+.filter__body .filter__choice {
+    width: 20%;
+}
+
+.character {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: white;
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+.character__body {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    color: rgb(235, 235, 235);
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0px;
+    border-radius: 0.7rem;
+    margin: 1rem;
+    order: 0;
+    transition: all 0.35s linear;
+}
+.character__body.edit {
+    box-shadow: 0 0 5px 5px white;
+}
+.character-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.character__body.checked {
+    order: 2;
+    background: url(../img/death.jpg);
+    background-size: cover;
+}
+.character__content {
+    padding: 1rem;
+    width: max-content; 
+    display: flex;
+    flex-direction: column;
+}
+
+.character__body .character__title {
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.character__body .create__edit-title {
+    display: none;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+.character__body.edit .character__title {
+    display: none;
+}
+.character__body.edit .create__edit-title {
+    display: block;
+}
+.character__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.character__age {
+    padding-right: 1rem;
+}
+.character__talents {
+    border-bottom: 1px white solid;
+    border-top: 1px white solid;
+    width: 100%;
+}
+.character__talents p {
+    margin: 1rem 0;
+    text-align: end;
+}
+.character__date {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.character__img {
+    overflow: hidden;
+    height: 300px;
+    width: 250px;
+    padding: 1rem;
+}
+.character__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character__setting {
+    color: rgb(255, 255, 255);
+    margin: 1.5rem 0 0 0;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.character__setting i {
+    pointer-events: none;
+}
+.character__setting .character__more {
+    transform: translateX(450%);
+    transition: all 0.4s linear;
+}
+.character__setting.active .character__more {
+    transform: translateX(0%);
+}
+.character__setting .character__more i {
+    transform: rotate(0deg);
+    transition: all 0.5s linear;
+    font-size: 28px;
+}
+.character__setting.active .character__more i {
+    transform: rotate(135deg);
+}
+.character__setting .character__edit,
+.character__setting .character__remove,
+.character__setting .character__save,
+.character__setting .character__life {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s linear 0s;
+    margin-bottom: 0;
+}
+.character__setting.active .character__edit,
+.character__setting.active .character__remove,
+.character__setting.active .character__save,
+.character__setting.active .character__life {
+    opacity: 1;
+    pointer-events: all;
+    transition: all 0.15s linear 0.3s;
+}
+.character__setting .character__save {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    padding: 0;
+}
+
+.battle {
+    margin: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.battle__parametr h2,
+.battle .start-battle {
+    color: black;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    text-transform: capitalize;
+}
+.battle .start-battle {
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    margin: 1rem 0;
+    box-shadow: 0 0 0px 0px rgb(177, 177, 177);
+}
+
+.battle .start-battle:active {
+    box-shadow: 0 0 3px 5px rgb(177, 177, 177);
+}
+.character__body .battle-checkbox {
+    opacity: 0;
+    pointer-events: none;
+    width: 1rem;
+    height: 1rem;
+    background: white;
+    transition: all 0.25s linear;
+    border-radius: 0.2rem;
+    background: rgb(255, 59, 59);
+}
+.character__body.select .battle-checkbox {
+    opacity: 1;
+    pointer-events: all;
+}
+.character__body.choice .battle-checkbox,
+.character__body .battle-checkbox.choice {
+    background: rgb(142, 255, 142);
+    box-shadow: 0 0 5px black;
+}
